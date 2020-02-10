@@ -17,7 +17,7 @@ unload: stop
 	rm $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist || true
 
 stop:
-	docker stop $(HOTOKU_PLIST_JUPYTERLAB_CONTAINER_NAME)
+	docker stop $(HOTOKU_PLIST_JUPYTERLAB_CONTAINER_NAME) || true
 
 %.plist: %.py %.jinja.plist
 	PYTHONPATH=../lib python $< > $@
