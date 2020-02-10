@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>KeepAlive</key>
+  <true/>
+  <key>Label</key>
+  <string>info.hotoku.plist-rstudio</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>{{HOTOKU_PLIST_DOCKER}}</string>
+    <string>run</string>
+    <string>--rm</string>
+    <string>-p</string>
+    <string>{{HOTOKU_PLIST_RSTUDIO_PORT}}:8787</string>
+    <string>-v</string>
+    <string>{{HOTOKU_PLIST_RSTUDIO_WORKDIR}}:/home/rstudio</string>
+    <string>-e</string>
+    <string>PASSWORD={{HOTOKU_PLIST_RSTUDIO_PASSWORD}}</string>
+    <string>--name</string>
+    <string>{{HOTOKU_PLIST_RSTUDIO_CONTAINER_NAME}}</string>
+    <string>{{HOTOKU_PLIST_RSTUDIO_IMAGE_NAME}}</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>{{HOTOKU_PLIST_RSTUDIO_LOGERR}}</string>
+  <key>StandardOutPath</key>
+  <string>{{HOTOKU_PLIST_RSTUDIO_LOGOUT}}</string>
+</dict>
+</plist>
