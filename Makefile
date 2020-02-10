@@ -1,9 +1,11 @@
-subdirs := jupyterlab
+subdirs := jupyterlab rstudio
 
 .PHONY: all $(subdirs)
-PWD := $(shell pwd)
 
 all: $(subdirs)
 $(subdirs):
 	@echo building $@
-	$(MAKE) PYTHONPATH=$(PWD)/lib -C $@
+	$(MAKE) PYTHONPATH=$(shell pwd)/lib -C $@
+
+clean:
+	for d in $(subdirs); do $(MAKE) -C $$d clean; done

@@ -1,9 +1,12 @@
-.PHONY: all load docker unload
+.PHONY: all load docker unload clean
 
 PLIST_NAME=info.hotoku.jupyterlab
 
 
 all: load
+
+clean: unload
+	rm $(PLIST_NAME).plist || true
 
 load: $(PLIST_NAME).plist docker
 	cp -f $(PLIST_NAME).plist $(HOTOKU_PLIST_DESTPATH)
