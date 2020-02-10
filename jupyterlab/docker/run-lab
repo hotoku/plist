@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+
+PORT=8888
+while getopts p: OPT; do
+    case ${OPT} in
+        p) PORT=${OPTARG} ;;
+    esac
+done
+
+jupyter lab --ip=0.0.0.0 --allow-root --port=${PORT}
