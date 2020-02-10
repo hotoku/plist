@@ -16,8 +16,8 @@
     <string>-v</string>
     <string>/Users/hotoku/samples/ipynotebook:/root/work</string>
     <string>--name</string>
-    <string></string>
-    <string></string>
+    <string>plist-jupyterlab</string>
+    <string>hotoku/python</string>
     <string>bash</string>
     <string>-lc</string>
     <string>/usr/local/bin/run-lab</string>

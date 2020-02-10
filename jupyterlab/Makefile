@@ -12,9 +12,12 @@ load: $(PLIST_NAME).plist docker
 docker: unload
 	make -C docker
 
-unload:
+unload: stop
 	launchctl unload $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist || true
 	rm $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist || true
 
+stop:
+	docker stop $(HOTOKU_PLIST_JUPYTERLAB_CONTAINER_NAME)
+
 %.plist: %.py %.jinja.plist
-	python $< > $@
+	PYTHONPATH=../lib python $< > $@
