@@ -1,4 +1,4 @@
-.PHONY: all load docker unload clean
+.PHONY: all load docker unload clean docker
 
 PLIST_NAME=info.hotoku.jupyterlab
 
