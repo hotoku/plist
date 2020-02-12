@@ -3,10 +3,10 @@
 
 all: image
 
-image: pull
+image: stop
 	docker build -t $(HOTOKU_PLIST_JUPYTERLAB_IMAGE_NAME) .
 
-pull:
+pull: stop
 	docker pull $(HOTOKU_PLIST_JUPYTERLAB_IMAGE_NAME)
 
 rebuild:
