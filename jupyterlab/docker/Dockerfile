@@ -46,7 +46,7 @@ RUN pip install Cython \
   jupyter serverextension enable --py jupyterlab_git &&\
   pip install colormath
 
-
+RUN pip install japanize-matplotlib
 
 
 WORKDIR /root/work
