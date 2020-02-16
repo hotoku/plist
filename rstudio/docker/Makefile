@@ -1,4 +1,4 @@
-.PHONY: all image rebuild stop
+.PHONY: all image rebuild stop push
 
 
 all: image
@@ -11,3 +11,6 @@ rebuild:
 
 stop: 
 	docker stop plist-jupyter || true
+
+push:
+	docker push $(HOTOKU_PLIST_RSTUDIO_IMAGE_NAME)
