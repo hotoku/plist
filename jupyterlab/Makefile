@@ -1,26 +1,27 @@
-.PHONY: all load docker unload clean docker
+.PHONY: all load unload clean
 
 PLIST_NAME=info.hotoku.jupyterlab
+EXE_NAME=run
 
-
-all: load
+all: load $(EXE_NAME)
+	@echo making $@
+	chmod 755 $(EXE_NAME)
 
 clean: unload
+	@echo making $@
 	rm $(PLIST_NAME).plist || true
+	rm $(EXE_NAME)
 
-load: $(PLIST_NAME).plist docker
+load: $(PLIST_NAME).plist unload
+	@echo making $@
 	cp -f $(PLIST_NAME).plist $(HOTOKU_PLIST_DESTPATH)
 	launchctl load $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist
 
-docker: unload
-	make -C docker
-
-unload: stop
+unload:
+	@echo making $@
 	launchctl unload $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist || true
 	rm $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist || true
 
-stop:
-	docker stop $(HOTOKU_PLIST_JUPYTERLAB_CONTAINER_NAME) || true
-
-%.plist: %.py %.jinja.plist
-	PYTHONPATH=../lib python $< > $@
+%: %.jinja render.py ../.envrc
+	@echo making $@
+	PYTHONPATH=../lib python render.py $< ../.envrc > $@

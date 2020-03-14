@@ -8,19 +8,7 @@
   <string>info.hotoku.plist-jupyterlab</string>
   <key>ProgramArguments</key>
   <array>
-    <string>{{HOTOKU_PLIST_DOCKER}}</string>
-    <string>run</string>
-    <string>--rm</string>
-    <string>-p</string>
-    <string>{{HOTOKU_PLIST_JUPYTERLAB_PORT}}:8888</string>
-    <string>-v</string>
-    <string>{{HOTOKU_PLIST_JUPYTERLAB_WORKDIR}}:/root/work</string>
-    <string>--name</string>
-    <string>{{HOTOKU_PLIST_JUPYTERLAB_CONTAINER_NAME}}</string>
-    <string>{{HOTOKU_PLIST_JUPYTERLAB_IMAGE_NAME}}</string>
-    <string>bash</string>
-    <string>-lc</string>
-    <string>/usr/local/bin/run-lab</string>
+    <string>{{HOTOKU_PLIST_JUPYTERLAB_MAIN}}</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
