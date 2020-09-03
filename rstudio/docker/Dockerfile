@@ -13,7 +13,6 @@ RUN \
   cd OpenBUGS-3.2.3 && \
   ./configure && \
   make -j4 && make -j4 install && \
-
   install2.r -n4 --error --deps TRUE \
     -r https://cran.r-project.org/ \
     BRugs \
