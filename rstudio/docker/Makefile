@@ -21,5 +21,4 @@ push:
 
 
 %: %.jinja
-#	jinja2 -D RSTUDIO_TAG=$(RSTUDIO_TAG) $< > $@
-	echo $(RSTUDIO_TAG)
+	jinja2 -D RSTUDIO_TAG=$(RSTUDIO_TAG) $< > $@
