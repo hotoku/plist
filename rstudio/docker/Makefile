@@ -3,14 +3,23 @@
 
 all: image
 
-image:
+
+image: Dockerfile
 	docker build -t $(HOTOKU_PLIST_RSTUDIO_IMAGE_NAME) .
+
 
 rebuild:
 	docker build --no-cache -t $(HOTOKU_PLIST_RSTUDIO_IMAGE_NAME) .
 
-stop: 
+
+stop:
 	docker stop plist-jupyter || true
+
 
 push:
 	docker push $(HOTOKU_PLIST_RSTUDIO_IMAGE_NAME)
+
+
+%: %.jinja
+#	jinja2 -D RSTUDIO_TAG=$(RSTUDIO_TAG) $< > $@
+	echo $(RSTUDIO_TAG)
