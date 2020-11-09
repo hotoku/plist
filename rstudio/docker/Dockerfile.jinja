@@ -8,12 +8,8 @@ RUN \
   libcairo2-dev \
   libxt-dev \
   fonts-noto-cjk \
-  libc6-dev-i386 && \
-  wget -O OpenBUGS-3.2.3.tar.gz "http://www.openbugs.net/w/OpenBUGS_3_2_3?action=AttachFile&do=get&target=OpenBUGS-3.2.3.tar.gz" && \
-  tar xzvf OpenBUGS-3.2.3.tar.gz && \
-  cd OpenBUGS-3.2.3 && \
-  ./configure && \
-  make && make install && \
+  libc6-dev-i386
+RUN \
   install2.r -n4 --error --deps TRUE \
   -r https://cran.r-project.org/ \
   BRugs \
