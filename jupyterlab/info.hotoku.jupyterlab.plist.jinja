@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-  <key>KeepAlive</key>
-  <true/>
-  <key>Label</key>
-  <string>info.hotoku.plist-jupyterlab</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>{{HOTOKU_PLIST_JUPYTERLAB_MAIN}}</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>StandardErrorPath</key>
-  <string>{{HOTOKU_PLIST_JUPYTERLAB_LOGERR}}</string>
-  <key>StandardOutPath</key>
-  <string>{{HOTOKU_PLIST_JUPYTERLAB_LOGOUT}}</string>
-</dict>
+  <dict>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>GOOGLE_APPLICATION_CREDENTIALS</key>
+      <string>/Users/hotoku/.config/gcloud/legacy_credentials/dtws_yasunori_horikoshi@oaklawn.co.jp/adc.json</string>
+    </dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>info.hotoku.plist-jupyterlab</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>{{HOTOKU_PLIST_JUPYTERLAB_MAIN}}</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>{{HOTOKU_PLIST_JUPYTERLAB_LOGERR}}</string>
+    <key>StandardOutPath</key>
+    <string>{{HOTOKU_PLIST_JUPYTERLAB_LOGOUT}}</string>
+  </dict>
 </plist>
