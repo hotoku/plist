@@ -5,7 +5,7 @@ all: image
 
 
 image: Dockerfile
-	docker build -t $(HOTOKU_PLIST_RSTUDIO_IMAGE_NAME) .
+	docker build -t $(HOTOKU_PLIST_RSTUDIO_IMAGE_NAME):$(RSTUDIO_TAG) .
 
 
 rebuild:
