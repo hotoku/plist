@@ -2,3 +2,4 @@ log/
 .envrc
 */*.log
 temp/
+/rstudio/docker/Dockerfile

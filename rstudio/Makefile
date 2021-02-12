@@ -1,14 +1,18 @@
 .PHONY: all load docker unload clean
 
-PLIST_NAME=info.hotoku.rstudio
+PLIST_NAME := info.hotoku.rstudio
+subdirs := docker
 
+all: load $(subdirs)
 
-all: load
+$(subdirs):
+	@echo building $@
+	$(MAKE) -C $@
 
 clean: unload
 	rm  $(PLIST_NAME).plist || true
 
-load: $(PLIST_NAME).plist
+load: $(PLIST_NAME).plist unload
 	cp -f $(PLIST_NAME).plist $(HOTOKU_PLIST_DESTPATH)
 	launchctl load $(HOTOKU_PLIST_DESTPATH)/$(PLIST_NAME).plist
 
@@ -19,5 +23,5 @@ unload: stop
 stop:
 	docker stop $(HOTOKU_PLIST_RSTUDIO_CONTAINER_NAME) || true
 
-%.plist: %.py %.jinja.plist
-	PYTHONPATH=../lib python $< > $@
+%.plist: %.jinja.plist
+	../lib/plist.py -e ../.envrc $< > $@

@@ -1,6 +1,10 @@
+#!/usr/bin/env python3
+
+
 import re
 from jinja2 import Template, Environment, FileSystemLoader
 import os
+import click
 
 
 def read_env_file(env_file):
@@ -27,3 +31,16 @@ def run(tpl_file, env_file):
     with open("/tmp/hoge.txt", "w") as f:
         f.write(str(data))
     return template.render(data)
+
+
+@click.command()
+@click.option("--env", "-e", required=True)
+@click.option("--data", "-D", multiple=True)
+@click.argument("template")
+def main(env, data, template):
+    data2 = {k:v for k,v in [d.split("=") for d in data]}
+    ret = run(template, env)
+    print(ret)
+
+if __name__ == "__main__":
+    main()
