@@ -21,11 +21,10 @@ def read_env_file(env_file):
     return vars
 
 
-def run(tpl_file, env_file):
+def run(tpl_file, env_file, data={}):
     env = Environment(loader=FileSystemLoader("."), trim_blocks=False)
     template = env.get_template(tpl_file)
     vars = read_env_file(env_file)
-    data = {}
     for v in vars:
         data[v] = os.environ[v]
     with open("/tmp/hoge.txt", "w") as f:
@@ -39,7 +38,7 @@ def run(tpl_file, env_file):
 @click.argument("template")
 def main(env, data, template):
     data2 = {k:v for k,v in [d.split("=") for d in data]}
-    ret = run(template, env)
+    ret = run(template, env, data2)
     print(ret)
 
 if __name__ == "__main__":

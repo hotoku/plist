@@ -2,6 +2,8 @@ from {{HOTOKU_PLIST_RSTUDIO_IMAGE_NAME}}:{{HOTOKU_PLIST_RSTUDIO_IMAGE_TAG}}
 
 run install2.r rstan
 
+copy rstudio-prefs.json /etc/rstudio/rstudio-prefs.json
+
 # Local Variables:
 # mode: dockerfile-mode
 # End:
