@@ -19,7 +19,7 @@
     <string>PASSWORD={{HOTOKU_PLIST_RSTUDIO_PASSWORD}}</string>
     <string>--name</string>
     <string>{{HOTOKU_PLIST_RSTUDIO_CONTAINER_NAME}}</string>
-    <string>{{HOTOKU_PLIST_RSTUDIO_IMAGE_NAME}}</string>
+    <string>{{HOTOKU_PLIST_RSTUDIO_IMAGE_NAME}}:{{HOTOKU_PLIST_RSTUDIO_IMAGE_TAG}}</string>
   </array>
   <key>RunAtLoad</key>
   <true/>

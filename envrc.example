@@ -10,7 +10,8 @@ export HOTOKU_PLIST_JUPYTERLAB_PORT=9002
 export HOTOKU_PLIST_JUPYTERLAB_MAIN=$(pwd)/jupyterlab/run
 export HOTOKU_PLIST_JUPYTERLAB_EXE=/Users/hotoku/anaconda3/bin/jupyter
 
-export HOTOKU_PLIST_RSTUDIO_IMAGE_NAME=hotoku/r
+export HOTOKU_PLIST_RSTUDIO_IMAGE_NAME=rocker/tidyverse
+export HOTOKU_PLIST_RSTUDIO_IMAGE_TAG=4.0.3
 export HOTOKU_PLIST_RSTUDIO_CONTAINER_NAME=plist-rstudio
 export HOTOKU_PLIST_RSTUDIO_WORKDIR=~/samples/r
 export HOTOKU_PLIST_RSTUDIO_LOGOUT=$(pwd)/log/rstudio/out.txt
